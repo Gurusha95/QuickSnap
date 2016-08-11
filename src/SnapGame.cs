@@ -9,6 +9,7 @@ namespace CardGames
         public static void LoadResources()
         {
             Bitmap cards;
+            SwinGame.LoadFontNamed("gamefont", "Chunkfive.otf", 24);
             cards = SwinGame.LoadBitmapNamed ("Cards", "Cards.png");
             SwinGame.BitmapSetCellDetails (cards, 167, 250, 13, 5, 53);      // set the cells in the bitmap to match the cards
         }
@@ -34,19 +35,15 @@ namespace CardGames
 		/// <param name="myGame">The details of the game -- mostly top card and scores.</param>
 		private static void DrawGame(Snap myGame)
 		{
-<<<<<<< HEAD
             SwinGame.DrawBitmap("cardsBoard.png", 0, 0);
-=======
-            SwinGame.DrawBitmap("cardsBoard.png",0,0);
->>>>>>> origin/add-background-image
 
 			// Draw the top card
 			Card top = myGame.TopCard;
 			if (top != null)
 			{
-				SwinGame.DrawText ("Top Card is " + top.ToString (), Color.RoyalBlue, 0, 20);
-				SwinGame.DrawText ("Player 1 score: " + myGame.Score(0), Color.RoyalBlue, 0, 30);
-				SwinGame.DrawText ("Player 2 score: " + myGame.Score(1), Color.RoyalBlue, 0, 40);
+				SwinGame.DrawText ("Top Card is " + top.ToString (), Color.RoyalBlue,"gamefont", 0, 20);
+				SwinGame.DrawText ("Player 1 score: " + myGame.Score(0), Color.RoyalBlue,"gamefont", 0, 30);
+				SwinGame.DrawText ("Player 2 score: " + myGame.Score(1), Color.RoyalBlue,"gamefont", 0, 40);
 				SwinGame.DrawCell (SwinGame.BitmapNamed ("Cards"), top.CardIndex, 521, 153);
 			}
 			else
